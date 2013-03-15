@@ -1,0 +1,11 @@
+{
+  "name": "ensure",
+  "description": "Ensure a page has the libraries you need, or load 'em from a CDN.",
+  "version": "1.0.0",
+  "keywords": ["library", "cdn", "loader"],
+  "license": "MIT",
+  "dependencies": {},
+  "main": "./ensure.js",
+  "scripts": ["ensure.js"],
+  "repo": "elucidata/ensure"
+}
