@@ -1,25 +1,28 @@
 libs=
-  jquery: 
-    url: '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'
-    test: -> window.jQuery?
-  jqueryui: 
-    url: '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js'
-    test: -> window.jQuery.Widget? # Will this work?
-  webfont: 
-    url: '//ajax.googleapis.com/ajax/libs/webfont/1.1.2/webfont.js'
-    test: -> window.WebFont?
   angular: 
     url: '//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js'
     test: -> window.angular?
   backbone: 
     url: '//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js'
     test: -> window.Backbone?
-  underscore: 
-    url: '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js'
-    test: -> window._?
+  hammer:
+    url: '//cdnjs.cloudflare.com/ajax/libs/hammer.js/0.6.4/hammer.js'
+    test: -> window.Hammer?
+  jquery: 
+    url: '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'
+    test: -> window.jQuery?
+  jqueryui: 
+    url: '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js'
+    test: -> window.jQuery.Widget? # Will this work?
   marionette: 
     url: '//cdnjs.cloudflare.com/ajax/libs/backbone.marionette/1.0.0-rc4-bundled/backbone.marionette.min.js'
     test: -> window.Backbone.Marionette?
+  underscore: 
+    url: '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js'
+    test: -> window._?
+  webfont: 
+    url: '//ajax.googleapis.com/ajax/libs/webfont/1.1.2/webfont.js'
+    test: -> window.WebFont?
   zepto: 
     url: '//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js'
     test: -> window.Zepto?

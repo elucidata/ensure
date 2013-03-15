@@ -4,24 +4,6 @@
     __slice = [].slice;
 
   libs = {
-    jquery: {
-      url: '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
-      test: function() {
-        return window.jQuery != null;
-      }
-    },
-    jqueryui: {
-      url: '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js',
-      test: function() {
-        return window.jQuery.Widget != null;
-      }
-    },
-    webfont: {
-      url: '//ajax.googleapis.com/ajax/libs/webfont/1.1.2/webfont.js',
-      test: function() {
-        return window.WebFont != null;
-      }
-    },
     angular: {
       url: '//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js',
       test: function() {
@@ -34,16 +16,40 @@
         return window.Backbone != null;
       }
     },
-    underscore: {
-      url: '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js',
+    hammer: {
+      url: '//cdnjs.cloudflare.com/ajax/libs/hammer.js/0.6.4/hammer.js',
       test: function() {
-        return window._ != null;
+        return window.Hammer != null;
+      }
+    },
+    jquery: {
+      url: '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+      test: function() {
+        return window.jQuery != null;
+      }
+    },
+    jqueryui: {
+      url: '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js',
+      test: function() {
+        return window.jQuery.Widget != null;
       }
     },
     marionette: {
       url: '//cdnjs.cloudflare.com/ajax/libs/backbone.marionette/1.0.0-rc4-bundled/backbone.marionette.min.js',
       test: function() {
         return window.Backbone.Marionette != null;
+      }
+    },
+    underscore: {
+      url: '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js',
+      test: function() {
+        return window._ != null;
+      }
+    },
+    webfont: {
+      url: '//ajax.googleapis.com/ajax/libs/webfont/1.1.2/webfont.js',
+      test: function() {
+        return window.WebFont != null;
       }
     },
     zepto: {
