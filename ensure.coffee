@@ -1,40 +1,18 @@
 libs=
-  angular: 
-    url: '//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js'
-    test: -> window.angular?
-  backbone: 
-    url: '//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js'
-    test: -> window.Backbone?
-  hammer:
-    url: '//cdnjs.cloudflare.com/ajax/libs/hammer.js/0.6.4/hammer.js'
-    test: -> window.Hammer?
-  jquery: 
-    url: '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'
-    test: -> window.jQuery?
-  jqueryui: 
-    url: '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js'
-    test: -> window.jQuery.Widget? # Will this work?
-  marionette: 
-    url: '//cdnjs.cloudflare.com/ajax/libs/backbone.marionette/1.0.0-rc4-bundled/backbone.marionette.min.js'
-    test: -> window.Backbone.Marionette?
-  underscore: 
-    url: '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js'
-    test: -> window._?
-  webfont: 
-    url: '//ajax.googleapis.com/ajax/libs/webfont/1.1.2/webfont.js'
-    test: -> window.WebFont?
-  zepto: 
-    url: '//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js'
-    test: -> window.Zepto?
+  angular: -> angular ? '//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js'
+  backbone: -> Backbone ? '//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js'
+  hammer: -> Hammer ? '//cdnjs.cloudflare.com/ajax/libs/hammer.js/0.6.4/hammer.js'
+  jquery: -> jQuery ? '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'
+  jqueryui: -> jQuery?.Widget ? '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js'
+  underscore: -> _ ? '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js'
+  webfont: -> WebFont ? '//ajax.googleapis.com/ajax/libs/webfont/1.1.2/webfont.js'  
+  zepto: -> Zepto ? '//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js'
+
+protocol= if location.protocol is 'file:' then "http:" else ''
 
 load_script= (name, callback)->
-  protocol= if location.protocol is 'file:' then "http:" else ''
-  def= libs[name]
-  unless def?
-    return callback new Error "Library not found. (#{ name })"
-  if def.test()
-    return callback(null)
-  url= def.url
+  url= name?() ? libs[name]?() ? null
+  return callback(null) unless typeof url is 'string'
   script= document.createElement('script')
   script.type= "text/javascript"
   script.defer= true if loader.defer
@@ -54,10 +32,8 @@ loader= (libs...)->
     libs.pop()
   else
     (err)-> 
-      if err?
-        throw err
-      else
-        console?.log? "Library loading complete."
+      throw err if err?
+      console?.log? "Library loading complete."
   nextLib= libs.shift()
   load_handler= (err)->
     return callback(err) if err?
@@ -69,14 +45,14 @@ loader= (libs...)->
   load_script nextLib, load_handler
   null
 
+# Here's a great graphic visualizing the difference:
+# http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/
 loader.async= true
 loader.defer= false
 
-# Here's a great graphic visualizing the difference:
-# http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/
-
+loader.libs= libs
 
 if module?
   module.exports= loader
 else
-  @loader= loader
+  @ensure= loader
