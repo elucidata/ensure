@@ -1,6 +1,7 @@
 libs=
   angular: -> angular ? '//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js'
   backbone: -> Backbone ? '//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js'
+  fastclick: -> FastClick ? '//cdnjs.cloudflare.com/ajax/libs/fastclick/0.6.0/fastclick.min.js'
   hammer: -> Hammer ? '//cdnjs.cloudflare.com/ajax/libs/hammer.js/0.6.4/hammer.js'
   jquery: -> jQuery ? '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'
   jqueryui: -> jQuery?.Widget ? '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js'

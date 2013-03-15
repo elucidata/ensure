@@ -10,6 +10,9 @@
     backbone: function() {
       return typeof Backbone !== "undefined" && Backbone !== null ? Backbone : '//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js';
     },
+    fastclick: function() {
+      return typeof FastClick !== "undefined" && FastClick !== null ? FastClick : '//cdnjs.cloudflare.com/ajax/libs/fastclick/0.6.0/fastclick.min.js';
+    },
     hammer: function() {
       return typeof Hammer !== "undefined" && Hammer !== null ? Hammer : '//cdnjs.cloudflare.com/ajax/libs/hammer.js/0.6.4/hammer.js';
     },
